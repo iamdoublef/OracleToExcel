@@ -83,7 +83,8 @@ public class ExcelUtil {
 			outSheet.setColumnView(0, 30);  
 			outSheet.setColumnView(1, 30);  
 			outSheet.setColumnView(2, 30); 
-			outSheet.setColumnView(3, 30); 
+			outSheet.setColumnView(3, 30);
+			
 			outSheet.addCell(new Label(0,1,"表名"));
 			outSheet.addCell(new Label(1,1,table.get("name")));
 			outSheet.addCell(new Label(2,1,table.get("comment")));
@@ -91,7 +92,7 @@ public class ExcelUtil {
 			outSheet.addHyperlink(new WritableHyperlink(0,0,"返回目录",dirSheet,1,sheetIndex-1));
 			
 			dirSheet.addCell(new Label(0,sheetIndex,table.get("name")));
-			dirSheet.addHyperlink(new WritableHyperlink(1,sheetIndex-1,table.get("name"),outSheet,0,0));
+			dirSheet.addHyperlink(new WritableHyperlink(1,sheetIndex,table.get("name"),outSheet,0,0));
 			dirSheet.addCell(new Label(2,sheetIndex,table.get("comment")));
 			
 			outSheet.addCell(new Label(0,3,"字段名"));
@@ -112,7 +113,7 @@ public class ExcelUtil {
 				
 				outSheet.addCell(new Label(0,outRow,col.get("columnName")));
 				outSheet.addCell(new Label(1,outRow,col.get("dataType")));
-				outSheet.addCell(new Label(2,outRow++,col.get("notNull")));
+				outSheet.addCell(new Label(2,outRow,col.get("notNull")));
 				outSheet.addCell(new Label(3,outRow++,col.get("comments")));
 			}
 		}
@@ -312,10 +313,10 @@ public class ExcelUtil {
 					"CPMDBA");
 		 */
 		String driverClass = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@172.16.4.33:1521:ORCL";
-		String userName = "CPMDBA";
-		String password = "CPMDBA";
-		ExcelUtil.loadExcel(driverClass,url,userName,password, "d:/test/output.xls");
+		String url = "jdbc:oracle:thin:@172.16.4.37:18081:calm";
+		String userName = "ERMS";
+		String password = "SUNYARD";
+		ExcelUtil.loadExcel(driverClass,url,userName,password, "d:/output.xls");
 	}
 
 }
